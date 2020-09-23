@@ -22,15 +22,13 @@ class ChangeRenderers extends Component {
         {({style, node, ...rest}) => (
           <div style={style}>
             <Expandable
+              renderIcon={props => {
+                return <div {...props}>i</div>;
+              }}
               node={node}
               {...rest}
-              iconsClassNameMap={{
-                expanded: 'mi mi-folder-open',
-                collapsed: 'mi mi-folder',
-                lastChild: 'mi mi-insert-drive-file',
-              }}
             >
-              {node.name}
+              <span>{node.name}</span>
             </Expandable>
           </div>
         )}

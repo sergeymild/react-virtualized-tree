@@ -31,11 +31,13 @@ export interface Extensions {
   updateTypeHandlers: {[type: number]: onChange};
 }
 
+export interface RenderIconProps {}
+
 export interface TreeProps {
   extensions?: Extensions;
   nodes: Node[];
   onChange: (nodes: Node[]) => void;
-  children: <T = any>(props: RendererProps<T>) => JSX.Element;
+  children: <T = any>(props: RendererProps<T>) => React.JSX.Element;
   nodeMarginLeft?: number;
   width?: number;
   scrollToId?: number;
@@ -54,6 +56,7 @@ export interface RendererProps<T> {
   iconsClassNameMap?: T;
   style: React.CSSProperties;
   children?: React.ReactNode;
+  renderIcon?: (props: RenderIconProps) => React.JSX.Element
 }
 
 export type InjectedRendererProps<T> = Omit<RendererProps<T>, 'iconsClassNameMap'>;

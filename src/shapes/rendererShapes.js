@@ -7,4 +7,5 @@ export const Renderer = {
   onChange: PropTypes.func.isRequired,
   node: PropTypes.shape(FlattenedNode),
   index: PropTypes.number.isRequired,
+  renderIcon: PropTypes.func,
 };
