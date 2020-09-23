@@ -9,4 +9,5 @@ export const Renderer = {
   index: PropTypes.number.isRequired,
   renderIcon: PropTypes.func,
   className: PropTypes.string,
+  style: PropTypes.object,
 };
