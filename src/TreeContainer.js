@@ -50,6 +50,7 @@ export default class TreeContainer extends React.Component {
         nodeMarginLeft={this.props.nodeMarginLeft}
         nodes={flattenedTree}
         onChange={this.handleChange}
+        height={this.props.height}
         NodeRenderer={this.props.children}
         scrollToIndex={rowIndex}
         scrollToAlignment={this.props.scrollToAlignment}
@@ -68,6 +69,7 @@ TreeContainer.propTypes = {
   children: PropTypes.func.isRequired,
   nodeMarginLeft: PropTypes.number,
   width: PropTypes.number,
+  height: PropTypes.number,
   scrollToId: PropTypes.number,
   scrollToAlignment: PropTypes.string,
 };

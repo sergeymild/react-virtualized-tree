@@ -18,7 +18,7 @@ class ChangeRenderers extends Component {
 
   render() {
     return (
-      <Tree nodes={this.state.nodes} onChange={this.handleChange}>
+      <Tree nodes={this.state.nodes} height={50} onChange={this.handleChange}>
         {({style, node, ...rest}) => (
           <div style={style}>
             <Expandable
