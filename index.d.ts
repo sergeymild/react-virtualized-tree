@@ -57,6 +57,7 @@ export interface RendererProps {
   style: React.CSSProperties;
   children?: React.ReactNode;
   renderIcon?: (props: RenderIconProps) => JSX.Element
+  className?: string
 }
 
 export type InjectedRendererProps<T> = RendererProps;

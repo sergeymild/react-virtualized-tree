@@ -8,4 +8,5 @@ export const Renderer = {
   node: PropTypes.shape(FlattenedNode),
   index: PropTypes.number.isRequired,
   renderIcon: PropTypes.func,
+  className: PropTypes.string,
 };
