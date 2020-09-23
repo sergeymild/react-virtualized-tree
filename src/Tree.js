@@ -8,7 +8,7 @@ import TreeState, {State} from './state/TreeState';
 export default class Tree extends React.Component {
   _cache = new CellMeasurerCache({
     fixedWidth: true,
-    minHeight: 50,
+    minHeight: 30,
   });
 
   getRowCount = () => {
