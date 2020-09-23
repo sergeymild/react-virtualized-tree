@@ -10,9 +10,9 @@ const Expandable = ({onChange, node, children, index, renderIcon, className, sty
 
   return (
     <span onDoubleClick={handleChange} className={className} style={style}>
-      {hasChildren &&
-        renderIcon &&
+      {renderIcon &&
         renderIcon({
+          hasChildren: hasChildren,
           onKeyDown: submitEvent(handleChange),
           onClick: handleChange,
           tabIndex: 0,

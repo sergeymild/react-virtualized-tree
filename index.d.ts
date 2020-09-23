@@ -32,7 +32,9 @@ export interface Extensions {
   updateTypeHandlers: {[type: number]: onChange};
 }
 
-export interface RenderIconProps {}
+export interface RenderIconProps {
+  readonly hasChildren: boolean
+}
 
 export interface TreeProps {
   extensions?: Extensions;
