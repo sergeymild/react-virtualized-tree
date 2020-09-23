@@ -7,7 +7,7 @@ const Expandable = ({onChange, node, children, index, renderIcon, className, sty
   const {hasChildren, isExpanded} = getNodeRenderOptions(node);
 
   const handleChange = () => {
-    console.log('expanda on chane ic');
+    console.log('expanda on chane ic', index, !isExpanded, node);
     onChange({...updateNode(node, {expanded: !isExpanded}), index});
   };
 
