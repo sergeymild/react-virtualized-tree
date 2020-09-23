@@ -6,7 +6,10 @@ import {Renderer} from '../shapes/rendererShapes';
 const Expandable = ({onChange, node, children, index, renderIcon, className, style}) => {
   const {hasChildren, isExpanded} = getNodeRenderOptions(node);
 
-  const handleChange = () => onChange({...updateNode(node, {expanded: !isExpanded}), index});
+  const handleChange = () => {
+    console.log('expanda on chane ic');
+    onChange({...updateNode(node, {expanded: !isExpanded}), index});
+  };
 
   return (
     <span onDoubleClick={handleChange} className={className} style={style}>
