@@ -97,7 +97,8 @@ interface GroupRendererProps {
 
 export interface FilteringContainerProps {
   nodes: Node[];
-  children: (params: {nodes: Node[]; nodeParentMappings: {[id: NodeId]: NodeId[]}}) => JSX.Element;
+  children: (params: {nodes: Node[]; nodeParentMappings: {// @ts-ignore
+      [id: NodeId]: NodeId[]}}) => JSX.Element;
   debouncer?: (func: (...p: any[]) => any, timeout: number) => void;
   groups?: {[g: string]: Group};
   selectedGroup?: string;
