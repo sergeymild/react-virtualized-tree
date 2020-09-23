@@ -8,6 +8,7 @@ type NodeId = number | string;
 interface BasicNode {
   id: NodeId;
   name: string;
+  item?: any
   state?: {[stateKey: string]: any};
 }
 
@@ -76,14 +77,14 @@ type FavoriteRenderProps = CustomRendererProps<{
   notFavorite?: string;
 }>;
 
-declare const Deletable: React.SFC<DeletableRenderProps>;
-declare const Expandable: React.SFC<ExpandableRenderProps>;
-declare const Favorite: React.SFC<FavoriteRenderProps>;
+declare const Deletable: React.FC<DeletableRenderProps>;
+declare const Expandable: React.FC<ExpandableRenderProps>;
+declare const Favorite: React.FC<FavoriteRenderProps>;
 
 interface Renderers {
-  Deletable: React.SFC<DeletableRenderProps>;
-  Expandable: React.SFC<ExpandableRenderProps>;
-  Favorite: React.SFC<FavoriteRenderProps>;
+  Deletable: React.FC<DeletableRenderProps>;
+  Expandable: React.FC<ExpandableRenderProps>;
+  Favorite: React.FC<FavoriteRenderProps>;
 }
 
 export const renderers: Renderers;
