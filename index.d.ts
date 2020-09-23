@@ -61,7 +61,7 @@ export interface RendererProps {
 }
 
 export type InjectedRendererProps<T> = RendererProps;
-export type CustomRendererProps<T> = Omit<RendererProps, 'style'>;
+export type CustomRendererProps<T> = RendererProps;
 
 type DeletableRenderProps = CustomRendererProps<{delete?: string}>;
 
