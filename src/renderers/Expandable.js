@@ -11,6 +11,7 @@ const Expandable = ({onChange, node, children, index, renderIcon}) => {
   return (
     <span onDoubleClick={handleChange}>
       {hasChildren &&
+        renderIcon &&
         renderIcon({
           onKeyDown: submitEvent(handleChange),
           onClick: handleChange,

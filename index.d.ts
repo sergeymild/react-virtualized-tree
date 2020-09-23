@@ -37,30 +37,30 @@ export interface TreeProps {
   extensions?: Extensions;
   nodes: Node[];
   onChange: (nodes: Node[]) => void;
-  children: <T = any>(props: RendererProps<T>) => React.JSX.Element;
+  children: <T = any>(props: RendererProps) => JSX.Element;
   nodeMarginLeft?: number;
   width?: number;
   scrollToId?: number;
   scrollToAlignment?: string;
+  height?: number
 }
 
 export default class Tree extends React.Component<TreeProps> {}
 
 export type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
 
-export interface RendererProps<T> {
+export interface RendererProps {
   measure: () => void;
   index: number;
   onChange: (updateParams: NodeAction) => void;
   node: FlattenedNode;
-  iconsClassNameMap?: T;
   style: React.CSSProperties;
   children?: React.ReactNode;
-  renderIcon?: (props: RenderIconProps) => React.JSX.Element
+  renderIcon?: (props: RenderIconProps) => JSX.Element
 }
 
-export type InjectedRendererProps<T> = Omit<RendererProps<T>, 'iconsClassNameMap'>;
-export type CustomRendererProps<T> = Omit<RendererProps<T>, 'style'>;
+export type InjectedRendererProps<T> = RendererProps;
+export type CustomRendererProps<T> = Omit<RendererProps, 'style'>;
 
 type DeletableRenderProps = CustomRendererProps<{delete?: string}>;
 

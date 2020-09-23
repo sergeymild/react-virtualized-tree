@@ -6,10 +6,15 @@ import {FlattenedNode} from './shapes/nodeShapes';
 import TreeState, {State} from './state/TreeState';
 
 export default class Tree extends React.Component {
-  _cache = new CellMeasurerCache({
-    fixedWidth: true,
-    minHeight: 30,
-  });
+  constructor(props) {
+    super(props);
+    this._cache = new CellMeasurerCache({
+      fixedWidth: true,
+      defaultHeight: props.height,
+      fixedHeight: !!props.height,
+      minHeight: props.height || 30,
+    });
+  }
 
   getRowCount = () => {
     const {nodes} = this.props;
@@ -66,26 +71,24 @@ export default class Tree extends React.Component {
     );
   };
 
-  render() {
-    const {nodes, width, scrollToIndex, scrollToAlignment} = this.props;
+  onRef = r => (this._list = r);
 
-    return (
-      <AutoSizer disableWidth={Boolean(width)}>
-        {({height, width: autoWidth}) => (
-          <List
-            deferredMeasurementCache={this._cache}
-            ref={r => (this._list = r)}
-            height={height}
-            rowCount={this.getRowCount()}
-            rowHeight={this._cache.rowHeight}
-            rowRenderer={this.measureRowRenderer(nodes)}
-            width={width || autoWidth}
-            scrollToIndex={scrollToIndex}
-            scrollToAlignment={scrollToAlignment}
-          />
-        )}
-      </AutoSizer>
-    );
+  renderList = ({height, width: autoWidth}) => (
+    <List
+      deferredMeasurementCache={this._cache}
+      ref={this.onRef}
+      height={height}
+      rowCount={this.getRowCount()}
+      rowHeight={this._cache.rowHeight}
+      rowRenderer={this.measureRowRenderer(this.props.nodes)}
+      width={this.props.width || autoWidth}
+      scrollToIndex={this.props.scrollToIndex}
+      scrollToAlignment={this.props.scrollToAlignment}
+    />
+  );
+
+  render() {
+    return <AutoSizer disableWidth={Boolean(this.props.width)}>{this.renderList}</AutoSizer>;
   }
 }
 
@@ -97,4 +100,5 @@ Tree.propTypes = {
   width: PropTypes.number,
   scrollToIndex: PropTypes.number,
   scrollToAlignment: PropTypes.string,
+  height: PropTypes.number,
 };
