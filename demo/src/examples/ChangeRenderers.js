@@ -13,6 +13,7 @@ class ChangeRenderers extends Component {
   };
 
   handleChange = nodes => {
+    console.log(nodes);
     this.setState({nodes});
   };
 

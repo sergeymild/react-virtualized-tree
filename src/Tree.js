@@ -29,7 +29,7 @@ export default class Tree extends React.Component {
       TreeState.getNodeDeepness(nodes, index);
     }
 
-    return nodes instanceof State ? TreeState.getNodeDeepness(nodes, index) : node.deepness;
+    return nodes instanceof State ? TreeState.getNodeDeepness(nodes, index) : node.deepness || 0;
   };
 
   getNode = index => {
